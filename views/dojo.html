@@ -1,0 +1,58 @@
+<html>
+<head>
+	<script type="text/javascript">
+	dojoConfig = {
+		parseOnLoad: true
+	};
+	</script>
+	<script type="text/javascript" src="javascripts/3rd/dojo/dojo.js"></script>
+	<script data-main="javascripts/dojo" src="javascripts/3rd/require.js"></script>
+	<script type="text/javascript">
+
+	chartData = [
+	{ x: 1, y: 19021 },
+	{ x: 1, y: 12837 },
+	{ x: 1, y: 12378 },
+	{ x: 1, y: 21882 },
+	{ x: 1, y: 17654 },
+	{ x: 1, y: 15833 },
+	{ x: 1, y: 16122 }
+	];
+
+	require([
+				// Require the widget parser
+				"dojo/parser",
+
+				 // Require the basic 2d chart resource
+				 "dojox/charting/widget/Chart",
+
+				// Require the theme of our choosing
+				"dojox/charting/themes/Claro",
+
+				// Charting plugins: 
+
+				// 	Require the Pie type of Plot 
+				"dojox/charting/plot2d/Pie"
+
+				]);
+	</script>
+</head>
+<body>
+	<h1>Dojo Charting</h1>
+
+	<div 
+	data-dojo-type="dojox.charting.widget.Chart"
+	data-dojo-props="theme:dojox.charting.themes.Claro"
+	id="viewsChart"
+	style="width: 550px; height: 550px;">
+
+	<!-- Pie Chart: add the plot -->
+	<div class="plot" name="default" type="Pie" radius="200" fontColor="#000" labelOffset="-20"></div>
+
+	<!-- pieData is the data source -->
+	<div class="series" name="Last Week's Visits" array="chartData"></div> 
+
+</div>
+
+</body>
+</html>

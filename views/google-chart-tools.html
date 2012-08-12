@@ -25,12 +25,24 @@
 			var options = {
 				'title': 'How much Pizza I Ate Last Night',
 				'width': 400,
-				'height': 300
+				'height': 300,
+				'legend': 'left',
+				'is3D': true
 			};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
+
+			var bar = new google.visualization.BarChart(document.getElementById('bar_div'));
+			bar.draw(data, options);
+			google.visualization.events.addListener(bar, 'select', function(){
+				var selectedItem = bar.getSelection()[0];
+				if(selectedItem){
+					var value = data.getValue(selectedItem.row, selectedItem.column);
+					alert('You selected ' + value);
+				}
+			});
 		}
 	</script>
 </head>
@@ -38,6 +50,9 @@
 		<h1>Google Chart Tools</h1>
 		<p>Pie Chart</p>
 		<div id="chart_div"></div>
+
+		<p>Bar Chart</p>
+		<div id="bar_div"></div>
 
 	</body>
 </html>
