@@ -1,0 +1,49 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<link 'rel'='stylesheet' 'href'='/stylesheets/style.css'/>
+	<script type="text/javascript" src="javascripts/3rd/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/3rd/highcharts.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			var char1 = new Highcharts.Chart({
+				credits: {
+					enabled: false
+				},
+
+				chart: {
+					renderTo: 'container',
+					type: 'bar'
+				},
+				title: {
+					text: 'Fruit Consumption'
+				},
+				xAxis: {
+					categories: ['Apples', 'Bananas', 'Oranges']
+				},
+				yAxis: {
+					title: {
+						text: 'Fruit eaten'
+					}
+				},
+
+				series: [{
+					name: 'Jane',
+					data: [1, 0, 4]
+				}, {
+					name: 'John',
+					data: [5, 7, 3]
+				}
+				]
+ 			});
+		});
+	</script>
+</head>
+<body>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+
+	<div id="container" style="width: 200px; height: 200px"></div>
+</body>
+</html>

@@ -18,3 +18,7 @@ exports.google = function(req, res){
 exports.dojo = function(req, res){
 	res.render('dojo', {title: 'Dojo Charting'});
 };
+
+exports.highcharts = function(req, res){
+	res.render('highcharts', {title: 'Highcharts'});
+};
